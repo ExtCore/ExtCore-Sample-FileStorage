@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Authors>Dmitry Sikorsky</Authors>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExtCore.FileStorage.Abstractions" Version="4.0.0-alpha2" />
+    <PackageReference Include="ExtCore.Mvc.Infrastructure" Version="4.0.0-alpha2" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+﻿@* Copyright © 2018 Dmitry Sikorsky. All rights reserved. *@
+@* Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information. *@
+@model IEnumerable<string>
+<h1>File Storage Sample</h1>
+<h2>Upload New File</h2>
+<form id="form" name="form" enctype="multipart/form-data" method="post">
+  <input id="files" name="files" type="file" multiple onchange="document.getElementById('form').submit();" />
+</form>
+<h2>Uploaded Files</h2>
+<table>
+  <tr>
+    <th>Filename</th>
+  </tr>
+  @foreach (var filename in this.Model)
+  {
+    <tr>
+      <td>@filename</td>
+    </tr>
+  }
+</table>
