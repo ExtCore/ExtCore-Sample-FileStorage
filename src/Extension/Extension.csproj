@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ExtCore.FileStorage.Abstractions" Version="4.0.0-alpha2" />
-    <PackageReference Include="ExtCore.Mvc.Infrastructure" Version="4.0.0-alpha2" />
+    <PackageReference Include="ExtCore.FileStorage.Abstractions" Version="4.0.0" />
+    <PackageReference Include="ExtCore.Mvc.Infrastructure" Version="4.0.0" />
   </ItemGroup>
 
 </Project>
