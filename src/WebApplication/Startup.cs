@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace WebApplication
 {
@@ -14,9 +15,9 @@ namespace WebApplication
   {
     private string extensionsPath;
 
-    public Startup(IHostingEnvironment hostingEnvironment, IConfiguration configuration)
+    public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
     {
-      this.extensionsPath = hostingEnvironment.ContentRootPath + configuration["Extensions:Path"];
+      this.extensionsPath = webHostEnvironment.ContentRootPath + configuration["Extensions:Path"];
     }
 
     public void ConfigureServices(IServiceCollection services)
@@ -24,16 +25,18 @@ namespace WebApplication
       services.AddExtCore(this.extensionsPath);
       services.Configure<FileStorageOptions>(options =>
         {
-          options.RootPath = @"[Path to the solution]\ExtCore-Sample-FileStorage\src\WebApplication\FileStorage";
-		  //options.Secret = "[Dropbox access token]";
+          options.RootPath = @"[Path to the solution]\ExtCore-Sample-FileStorage\src\WebApplication\FileStorage\Uploads";
+          //options.Secret = "[Dropbox access token]";
           //options.RootPath = @"/";
         }
       );
     }
 
-    public void Configure(IApplicationBuilder applicationBuilder)
+    public void Configure(IApplicationBuilder applicationBuilder, IWebHostEnvironment webHostEnvironment)
     {
-      applicationBuilder.UseDeveloperExceptionPage();
+      if (webHostEnvironment.IsDevelopment())
+        applicationBuilder.UseDeveloperExceptionPage();
+
       applicationBuilder.UseExtCore();
     }
   }
