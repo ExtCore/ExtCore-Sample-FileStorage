@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <Authors>Dmitry Sikorsky</Authors>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ExtCore.FileStorage.Abstractions" Version="6.0.0" />
-    <PackageReference Include="ExtCore.Mvc.Infrastructure" Version="6.0.0" />
+    <PackageReference Include="ExtCore.FileStorage.Abstractions" Version="7.0.0" />
+    <PackageReference Include="ExtCore.Mvc.Infrastructure" Version="7.0.0" />
   </ItemGroup>
 
 </Project>
